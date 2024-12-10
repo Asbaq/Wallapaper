@@ -398,7 +398,6 @@ GameObject:
   - component: {fileID: 246939374}
   - component: {fileID: 246939373}
   - component: {fileID: 246939372}
-  - component: {fileID: 246939375}
   m_Layer: 5
   m_Name: CategoryScrollView
   m_TagString: Untagged
@@ -495,20 +494,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 246939370}
   m_CullTransparentMesh: 1
---- !u!114 &246939375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246939370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding: {x: 0, y: 0, z: 0, w: 0}
-  m_Softness: {x: 0, y: 0}
 --- !u!1 &551469433
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,9 +1147,8 @@ GameObject:
   - component: {fileID: 1159908322}
   - component: {fileID: 1159908321}
   - component: {fileID: 1159908320}
-  - component: {fileID: 1159908319}
   m_Layer: 5
-  m_Name: CategoryScrollView (1)
+  m_Name: CategoryScrollView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1190,20 +1174,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -63}
   m_SizeDelta: {x: 0, y: -126}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1159908319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1159908317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding: {x: 0, y: 0, z: 0, w: 0}
-  m_Softness: {x: 0, y: 0}
 --- !u!114 &1159908320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1390,6 +1360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1730230195}
   - component: {fileID: 1730230196}
+  - component: {fileID: 1730230197}
   m_Layer: 0
   m_Name: WallpaperSelectionManager
   m_TagString: Untagged
@@ -1419,7 +1390,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730230193}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8c733b34499990478a31d535e2ee310, type: 3}
   m_Name: 
@@ -1430,6 +1401,20 @@ MonoBehaviour:
   thumbnailSprites: []
   thumbnailParent: {fileID: 0}
   thumbnailPrefab: {fileID: 0}
+--- !u!114 &1730230197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730230193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bf5805ef6e5ccc43a5fb1a639e3b46f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 7603312599318228824, guid: af072f3a4471fa240ab1e22b404efc1e, type: 3}
+  Canvas: {fileID: 0}
 --- !u!1 &1862165286
 GameObject:
   m_ObjectHideFlags: 0
