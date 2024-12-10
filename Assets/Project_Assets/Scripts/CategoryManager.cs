@@ -7,6 +7,7 @@ public class CategoryManager : MonoBehaviour
 {
     [SerializeField] private Transform categoryContainer; // Parent object with Grid Layout Group
     [SerializeField] private GameObject categoryButtonPrefab; // Prefab for category buttons
+  //  [SerializeField] private List<GameObject> categoryButtonPrefabs; // Prefab for category buttons
     [SerializeField] private string categoriesJsonFileName = "categories.json"; // JSON file name
 
     private void Start()
@@ -26,6 +27,7 @@ public class CategoryManager : MonoBehaviour
             // Populate the categories dynamically
             foreach (string category in categories)
             {
+                Debug.Log("category " + category);
                 CreateCategoryButton(category);
             }
         }

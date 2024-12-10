@@ -1,5 +1,7 @@
 fileFormatVersion: 2
-guid: ce0b39a1ff2bb17468c78b007f8a13c4
+guid: 250c5e30247904540993dfe32b7fb559
+labels:
+- FirebaseMessagingActivityGenerated
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
