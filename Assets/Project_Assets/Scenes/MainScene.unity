@@ -420,7 +420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f651d880d44794f9f2434613247ba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splashDuration: 10
+  splashDuration: 5
   homeSceneName: HomePage
 --- !u!114 &159886508999347985
 MonoBehaviour:

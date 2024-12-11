@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using GoogleMobileAds.Api;
 using System.Collections.Generic;
 
@@ -26,3 +26,4 @@ public class GoogleAds : MonoBehaviour
         bannerView.LoadAd(request);
     }
 }
+*/

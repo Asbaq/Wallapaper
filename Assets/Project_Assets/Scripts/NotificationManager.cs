@@ -1,4 +1,4 @@
-using Firebase.Messaging;
+/*using Firebase.Messaging;
 using UnityEngine;
 
 public class NotificationManager : MonoBehaviour
@@ -25,3 +25,4 @@ public class NotificationManager : MonoBehaviour
         FirebaseMessaging.TokenReceived -= OnTokenReceived;
     }
 }
+*/
