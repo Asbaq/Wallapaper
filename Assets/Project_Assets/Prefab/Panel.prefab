@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imageUrl: https://we.tl/t-DQzLuWsB55
   displayImage: {fileID: 0}
-  downloadButton: {fileID: 0}
+  downloadButton: {fileID: 1705505042295268515}
 --- !u!1 &2783595264329711843
 GameObject:
   m_ObjectHideFlags: 0

@@ -212,15 +212,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallpaperContainer: {fileID: 160814350}
   wallpaperPrefab: {fileID: 1176819906072418878, guid: 9632b68e2f8ab624faaba8a1638711bd, type: 3}
-  setFixedButton: {fileID: 0}
-  setRotationalButton: {fileID: 0}
   offlineWallpapers:
+  - {fileID: 21300000, guid: ee6204d47445b2a4ba65bb420f859e5f, type: 3}
+  - {fileID: 21300000, guid: a823f6c0a2b27b8428d6d7b466b3132f, type: 3}
+  - {fileID: 21300000, guid: 53698e79ea8c0a343a3606e935427415, type: 3}
   - {fileID: 21300000, guid: b6650edd265b9ba418c017308d8c1c2b, type: 3}
-  - {fileID: 21300000, guid: b6650edd265b9ba418c017308d8c1c2b, type: 3}
-  - {fileID: 21300000, guid: b6650edd265b9ba418c017308d8c1c2b, type: 3}
-  - {fileID: 21300000, guid: b6650edd265b9ba418c017308d8c1c2b, type: 3}
-  - {fileID: 21300000, guid: b6650edd265b9ba418c017308d8c1c2b, type: 3}
-  - {fileID: 21300000, guid: b6650edd265b9ba418c017308d8c1c2b, type: 3}
+  - {fileID: 21300000, guid: 68e86b251eebd7b47bcd2d6dc3537fec, type: 3}
+  - {fileID: 21300000, guid: 5b0928948279e654d8f77ab40ecc3d7e, type: 3}
+  Wallpapers: []
 --- !u!1 &180900021
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,11 +420,11 @@ RectTransform:
   - {fileID: 1140535453}
   m_Father: {fileID: 4039564836364436769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1060}
-  m_SizeDelta: {x: 0, y: -2120}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 440}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &246939372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -837,6 +836,7 @@ MonoBehaviour:
   categoryContainer: {fileID: 876191174}
   categoryButtonPrefab: {fileID: 1176819906072418878, guid: 940947d38d099d2449104efbeeef90de, type: 3}
   categoriesJsonFileName: categories.json
+  wallpaperSelectionManager: {fileID: 0}
 --- !u!1 &958083012
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,6 +1331,7 @@ MonoBehaviour:
   categoryContainer: {fileID: 876191174}
   categoryButtonPrefab: {fileID: 1176819906072418878, guid: 940947d38d099d2449104efbeeef90de, type: 3}
   categoriesJsonFileName: categories.json
+  wallpaperSelectionManager: {fileID: 0}
 --- !u!224 &1476617082
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1366,7 +1367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1730230195
 Transform:
   m_ObjectHideFlags: 0
@@ -1396,7 +1397,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Panel: {fileID: 7603312599318228824, guid: af072f3a4471fa240ab1e22b404efc1e, type: 3}
   Canvas: {fileID: 0}
-  currentPanel: {fileID: 0}
 --- !u!1 &1862165286
 GameObject:
   m_ObjectHideFlags: 0
@@ -2485,7 +2485,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Panel: {fileID: 1698908281181416738}
-  wallpaperDownload: {fileID: 0}
 --- !u!222 &6903111238651254403
 CanvasRenderer:
   m_ObjectHideFlags: 0

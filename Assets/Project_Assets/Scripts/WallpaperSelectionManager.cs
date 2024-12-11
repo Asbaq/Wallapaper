@@ -8,25 +8,45 @@ public class WallpaperSelectionManager : MonoBehaviour
 {
     [SerializeField] private Transform wallpaperContainer;
     [SerializeField] private GameObject wallpaperPrefab;
-    [SerializeField] private Button setFixedButton;
-    [SerializeField] private Button setRotationalButton;
+/*    [SerializeField] private Button setFixedButton;
+    [SerializeField] private Button setRotationalButton;*/
 
     private string selectedWallpaperName;
     [SerializeField] private List<Sprite> offlineWallpapers; // List of offline images
+    [SerializeField] private List<GameObject> Wallpapers; // List of offline images
+    private readonly List<GameObject> wallpaperItems = new List<GameObject>(); // Dynamic list of instantiated wallpaper items
 
     private void Start()
     {
-        LoadWallpapers();
-        ConfigureButtons();
+        LoadWallpapers(0);
     }
 
-    private void LoadWallpapers()
+    /// <summary>
+    /// Loads wallpapers into the UI container dynamically.
+    /// </summary>
+    public void LoadWallpapers(int ButtonID)
     {
-        foreach (Sprite wallpaper in offlineWallpapers)
-        {
-            CreateWallpaperItem(wallpaper);
+        ClearExistingWallpapers();
+
+        for(int i = 0; i<offlineWallpapers.Count; i++)
+        { 
+            CreateWallpaperItem(offlineWallpapers[ButtonID]);
         }
     }
+
+    /// <summary>
+    /// Clears existing wallpaper items to prevent duplicates.
+    /// </summary>
+    private void ClearExistingWallpapers()
+    {
+        foreach (var item in wallpaperItems)
+        {
+            Destroy(item);
+        }
+
+        wallpaperItems.Clear();
+    }
+
 
     /*    private void LoadWallpapers()
     {
@@ -65,30 +85,58 @@ public class WallpaperSelectionManager : MonoBehaviour
             Debug.Log($"Selected Wallpaper: {url}");
         }*/
 
+    /// <summary>
+    /// Creates a UI item for the given wallpaper.
+    /// </summary>
+    /// <param name="wallpaperSprite">The sprite to display in the wallpaper item.</param>
     private void CreateWallpaperItem(Sprite wallpaperSprite)
     {
-        GameObject wallpaperItem = Instantiate(wallpaperPrefab, wallpaperContainer);
-        wallpaperItem.GetComponentInChildren<Image>().sprite = wallpaperSprite;
-        wallpaperItem.GetComponent<Button>().onClick.AddListener(() => OnWallpaperSelected(wallpaperSprite.name));
+        var wallpaperItem = Instantiate(wallpaperPrefab, wallpaperContainer);
+        wallpaperItems.Add(wallpaperItem);
+
+        // Set wallpaper sprite
+        var wallpaperImage = wallpaperItem.GetComponentInChildren<Image>();
+        wallpaperImage.sprite = wallpaperSprite;
+
+        // Add click functionality
+        var button = wallpaperItem.GetComponent<Button>();
+        button.onClick.AddListener(() => OnWallpaperSelected(wallpaperSprite.name));
     }
 
+    /// <summary>
+    /// Called when a wallpaper is selected.
+    /// </summary>
+    /// <param name="wallpaperName">The name of the selected wallpaper.</param>
     private void OnWallpaperSelected(string wallpaperName)
     {
         selectedWallpaperName = wallpaperName;
         Debug.Log($"Selected Wallpaper: {wallpaperName}");
+
+        // Optional: Transition to full-screen wallpaper view or open a detailed options menu
+        OpenFullImageView(wallpaperName);
     }
 
-    private void ConfigureButtons()
+    /// <summary>
+    /// Opens a full image view for the selected wallpaper.
+    /// </summary>
+    /// <param name="wallpaperName">The name of the selected wallpaper.</param>
+    private void OpenFullImageView(string wallpaperName)
     {
-        setFixedButton.onClick.AddListener(() => SetWallpaper(false));
-        setRotationalButton.onClick.AddListener(() => SetWallpaper(true));
+        // Placeholder: Replace with your full-screen image logic
+        Debug.Log($"Opening full image view for: {wallpaperName}");
     }
 
-    private void SetWallpaper(bool isRotational)
-    {
-        Debug.Log($"Setting wallpaper as {(isRotational ? "Rotational" : "Fixed")}: {selectedWallpaperName}");
-        PlayerPrefs.SetString("WallpaperType", isRotational ? "Rotational" : "Fixed");
-        PlayerPrefs.SetString("SelectedWallpaper", selectedWallpaperName);
-        PlayerPrefs.Save();
-    }
+    /*   private void ConfigureButtons()
+       {
+           setFixedButton.onClick.AddListener(() => SetWallpaper(false));
+           setRotationalButton.onClick.AddListener(() => SetWallpaper(true));
+       }*/
+
+    /*   private void SetWallpaper(bool isRotational)
+       {
+           Debug.Log($"Setting wallpaper as {(isRotational ? "Rotational" : "Fixed")}: {selectedWallpaperName}");
+           PlayerPrefs.SetString("WallpaperType", isRotational ? "Rotational" : "Fixed");
+           PlayerPrefs.SetString("SelectedWallpaper", selectedWallpaperName);
+           PlayerPrefs.Save();
+       }*/
 }

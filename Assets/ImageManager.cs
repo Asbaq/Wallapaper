@@ -24,12 +24,14 @@ public class ImageDownloader : MonoBehaviour
 
     private void OnDownloadButtonClick()
     {
+            Debug.Log("HI");
             StartCoroutine(DownloadAndSaveImage());
     }
 
     // Coroutine to download and save the image
     private IEnumerator DownloadAndSaveImage()
     {
+        Debug.Log("HI");
         using (UnityWebRequest request = UnityWebRequestTexture.GetTexture(imageUrl))
         {
             yield return request.SendWebRequest();
