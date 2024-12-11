@@ -82,4 +82,5 @@ public class ImageDownloader : MonoBehaviour
 
         displayImage.sprite = sprite;
     }
+
 }

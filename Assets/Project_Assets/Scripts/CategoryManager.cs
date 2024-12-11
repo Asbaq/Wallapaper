@@ -2,14 +2,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 
 public class CategoryManager : MonoBehaviour
 {
     [SerializeField] private Transform categoryContainer; // Parent object with Grid Layout Group
     [SerializeField] private GameObject categoryButtonPrefab; // Prefab for category buttons
-  //  [SerializeField] private List<GameObject> categoryButtonPrefabs; // Prefab for category buttons
     [SerializeField] private string categoriesJsonFileName = "categories.json"; // JSON file name
     [SerializeField] private WallpaperSelectionManager wallpaperSelectionManager;
+
 
     private void Awake()
     {
@@ -34,7 +35,6 @@ public class CategoryManager : MonoBehaviour
             {
                 Debug.Log("category " + categories[i]);
                 CreateCategoryButton(categories[i],i);
-                Debug.Log(i);
             }
         }
         else
@@ -48,13 +48,7 @@ public class CategoryManager : MonoBehaviour
         // Instantiate the category button prefab
         GameObject categoryButton = Instantiate(categoryButtonPrefab, categoryContainer);
         categoryButton.GetComponent<ID>().id = id;
-        Debug.Log(id);
-        // Set the text to the category name
-        Text categoryText = categoryButton.GetComponentInChildren<Text>();
-        if (categoryText != null)
-        {
-            categoryText.text = categoryName;
-        }
+        categoryButton.GetComponentInChildren<TextMeshProUGUI>().text = categoryName;
 
         // Add a click listener to handle category selection
         Button button = categoryButton.GetComponent<Button>();
@@ -67,7 +61,6 @@ public class CategoryManager : MonoBehaviour
     private void OnCategorySelected(string categoryName,int ID)
     {
         wallpaperSelectionManager.LoadWallpapers(ID);
-        Debug.Log($"Selected category: {categoryName}");
     }
 
     [System.Serializable]
