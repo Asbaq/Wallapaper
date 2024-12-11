@@ -4,17 +4,30 @@ using UnityEngine.UI;
 
 public class WallpaperDownload : MonoBehaviour
 {
-    public GameObject Panel;
-    public GameObject Canvas;
+    public GameObject Panel; // Prefab for the wallpaper detail panel
+    public Canvas Canvas; // Reference to the main canvas
+    private GameObject currentPanel; // Tracks the instantiated panel
 
     private void Awake()
     {
-        Canvas = FindObjectOfType<Canvas>().gameObject;
+        if (Canvas == null)
+        {
+            Canvas = FindObjectOfType<Canvas>(); // Find Canvas if not assigned
+        }
     }
 
     public void Open()
     {
-        GameObject wallpaperItem = Instantiate(Panel, Canvas.transform);
-        wallpaperItem.GetComponent<Image>().sprite = gameObject.GetComponent<Image>().sprite;
+        if (currentPanel == null)
+        {
+            // Instantiate the panel and set the wallpaper image
+            currentPanel = Instantiate(Panel, Canvas.transform);
+            Image wallpaperImage = currentPanel.GetComponent<Image>();
+
+            if (wallpaperImage != null)
+            {
+                wallpaperImage.sprite = GetComponent<Image>().sprite;
+            }
+        }
     }
 }
