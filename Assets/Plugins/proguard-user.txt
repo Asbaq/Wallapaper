@@ -1,0 +1,2 @@
+# Keep all UnityPlayer class static fields to prevent stripping
+-keep class com.unity3d.player.UnityPlayer { public static *; }

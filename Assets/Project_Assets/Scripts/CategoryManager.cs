@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.IO;
 using TMPro;
+using UnityEngine.Networking;
+using System.Collections;
 
 public class CategoryManager : MonoBehaviour
 {
@@ -22,7 +24,7 @@ public class CategoryManager : MonoBehaviour
         LoadCategories();
     }
 
-    private void LoadCategories()
+/*    private void LoadCategories()
     {
         // Load the JSON file from the Resources folder or a persistent location
         string filePath = Path.Combine(Application.streamingAssetsPath, categoriesJsonFileName);
@@ -41,7 +43,63 @@ public class CategoryManager : MonoBehaviour
         {
             Debug.LogError($"Categories file not found at {filePath}");
         }
+    }*/
+
+
+    private void LoadCategories()
+    {
+        string filePath = Path.Combine(Application.streamingAssetsPath, categoriesJsonFileName);
+
+        // For Android, use UnityWebRequest or WWW to load the file
+        if (filePath.StartsWith("jar:file://"))
+        {
+            // Android uses this path scheme when accessing the assets inside the APK
+            StartCoroutine(LoadCategoriesFromStreamingAssets(filePath));
+        }
+        else
+        {
+            // Non-Android platforms can directly use File.ReadAllText
+            if (File.Exists(filePath))
+            {
+                string json = File.ReadAllText(filePath);
+                ProcessCategoriesJson(json);
+            }
+            else
+            {
+                Debug.LogError($"Categories file not found at {filePath}");
+            }
+        }
     }
+
+    private IEnumerator LoadCategoriesFromStreamingAssets(string filePath)
+    {
+        using (UnityWebRequest www = UnityWebRequest.Get(filePath))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError($"Failed to load categories file: {www.error}");
+            }
+            else
+            {
+                string json = www.downloadHandler.text;
+                ProcessCategoriesJson(json);
+            }
+        }
+    }
+
+    private void ProcessCategoriesJson(string json)
+    {
+        List<string> categories = JsonUtility.FromJson<CategoryList>(json).categories;
+
+        for (int i = 0; i < categories.Count; i++)
+        {
+            Debug.Log("Category: " + categories[i]);
+            CreateCategoryButton(categories[i], i);
+        }
+    }
+
 
     private void CreateCategoryButton(string categoryName, int id)
     {
