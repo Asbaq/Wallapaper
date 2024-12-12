@@ -120,7 +120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5712176270013015304}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 41148928279494460}
+        m_TargetAssemblyTypeName: Back, Assembly-CSharp
+        m_MethodName: Set
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2783595264329711843
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Panel: {fileID: 7603312599318228824}
+  wallpaperDownload: {fileID: 0}
 --- !u!1 &6460451501161591645
 GameObject:
   m_ObjectHideFlags: 0

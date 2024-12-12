@@ -8,8 +8,8 @@ public class WallpaperSelectionManager : MonoBehaviour
 {
     [SerializeField] private Transform wallpaperContainer;
     [SerializeField] private GameObject wallpaperPrefab;
-/*    [SerializeField] private Button setFixedButton;
-    [SerializeField] private Button setRotationalButton;*/
+    /*    [SerializeField] private Button setFixedButton;
+        [SerializeField] private Button setRotationalButton;*/
 
     private string selectedWallpaperName;
     [SerializeField] private List<Sprite> offlineWallpapers; // List of offline images
@@ -139,4 +139,5 @@ public class WallpaperSelectionManager : MonoBehaviour
            PlayerPrefs.SetString("SelectedWallpaper", selectedWallpaperName);
            PlayerPrefs.Save();
        }*/
+
 }

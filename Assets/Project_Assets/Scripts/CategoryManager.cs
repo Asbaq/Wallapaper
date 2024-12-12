@@ -24,28 +24,6 @@ public class CategoryManager : MonoBehaviour
         LoadCategories();
     }
 
-/*    private void LoadCategories()
-    {
-        // Load the JSON file from the Resources folder or a persistent location
-        string filePath = Path.Combine(Application.streamingAssetsPath, categoriesJsonFileName);
-        if (File.Exists(filePath))
-        {
-            string json = File.ReadAllText(filePath);
-            List<string> categories = JsonUtility.FromJson<CategoryList>(json).categories;
-
-            for (int i = 0; i < categories.Count; i++)
-            {
-                Debug.Log("category " + categories[i]);
-                CreateCategoryButton(categories[i],i);
-            }
-        }
-        else
-        {
-            Debug.LogError($"Categories file not found at {filePath}");
-        }
-    }*/
-
-
     private void LoadCategories()
     {
         string filePath = Path.Combine(Application.streamingAssetsPath, categoriesJsonFileName);
@@ -100,7 +78,6 @@ public class CategoryManager : MonoBehaviour
         }
     }
 
-
     private void CreateCategoryButton(string categoryName, int id)
     {
         // Instantiate the category button prefab
@@ -126,4 +103,5 @@ public class CategoryManager : MonoBehaviour
     {
         public List<string> categories;
     }
+
 }

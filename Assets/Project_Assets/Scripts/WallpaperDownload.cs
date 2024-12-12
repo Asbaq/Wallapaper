@@ -10,6 +10,7 @@ public class WallpaperDownload : MonoBehaviour
     public Canvas Canvas; // Reference to the main canvas
     private GameObject currentPanel; // Tracks the instantiated panel
     private byte[] jpgData;
+    public string path;
 
     // Define Windows API functions for setting wallpaper
     [DllImport("user32.dll", CharSet = CharSet.Auto)]
@@ -66,10 +67,11 @@ public class WallpaperDownload : MonoBehaviour
         jpgData = texture.EncodeToJPG();
         SetWallpaper();
         Destroy(texture); // Clean up memory
-     }
+        
+    }
 
 
-    private void SetWallpaper()
+    public void SetWallpaper()
     {
         if (jpgData == null || jpgData.Length == 0)
         {
@@ -82,12 +84,12 @@ public class WallpaperDownload : MonoBehaviour
 
         // Provide instructions for manual setting
         Debug.Log($"Wallpaper saved at: {filePath}. You can set it manually.");
-
-        #if UNITY_ANDROID
+        path = filePath;
+/*        #if UNITY_ANDROID
                 SetWallpaperAndroid(filePath);
         #elif UNITY_STANDALONE_WIN
                 SetWallpaperDesktop(filePath);
-        #endif
+        #endif*/
 
     }
 
@@ -107,7 +109,7 @@ public class WallpaperDownload : MonoBehaviour
         }
     }
 
-    private void SetWallpaperAndroid(string filePath)
+    public void SetWallpaperAndroid(string filePath)
     {
         try
         {
@@ -218,19 +220,7 @@ public class WallpaperDownload : MonoBehaviour
     }
 
 
-    private AndroidJavaObject ConvertTextureToBitmap(Texture2D texture)
-    {
-        byte[] textureData = texture.EncodeToPNG();
-
-        using (AndroidJavaClass bitmapFactory = new AndroidJavaClass("android.graphics.BitmapFactory"))
-        using (AndroidJavaObject bitmap = bitmapFactory.CallStatic<AndroidJavaObject>("decodeByteArray", textureData, 0, textureData.Length))
-        {
-            return bitmap;
-        }
-    }
-
-
-    private void SetWallpaperDesktop(string filePath)
+/*    private void SetWallpaperDesktop(string filePath)
     {
         try
         {
@@ -241,15 +231,16 @@ public class WallpaperDownload : MonoBehaviour
         {
             Debug.LogError("Error setting wallpaper on Windows: " + ex.Message);
         }
-    }
+    }*/
 
-    private void OpenFolder(string filePath)
+
+/*    private void OpenFolder(string filePath)
     {
         // Unity Editor-specific: Open the folder containing the wallpaper file (works in Editor)
 #if UNITY_EDITOR
         UnityEditor.EditorUtility.RevealInFinder(filePath);  // This only works in the Unity Editor
 #endif
-    }
+    }*/
 
     private Texture2D GetUncompressedTexture(Sprite sprite)
     {
