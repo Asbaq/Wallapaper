@@ -2048,6 +2048,7 @@ GameObject:
   - component: {fileID: 1005541161217306565}
   - component: {fileID: 4700089246543839576}
   - component: {fileID: 6100468038297803956}
+  - component: {fileID: 7299275497452185777}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2055,6 +2056,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!81 &7299275497452185777
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7299275497452185776}
+  m_Enabled: 1
 --- !u!222 &7435740828169275603
 CanvasRenderer:
   m_ObjectHideFlags: 0
