@@ -1,5 +1,3 @@
-Here is the documentation for the Unity Wallpaper Manager project:
-
 # 📱 Unity Wallpaper Manager
 
 ## 🚀 Overview
