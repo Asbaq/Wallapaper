@@ -5,6 +5,10 @@ Here is the documentation for the Unity Wallpaper Manager project:
 ## 🚀 Overview
 The Unity Wallpaper Manager allows users to select, preview, and set wallpapers on their devices. It supports both online and offline wallpapers, with additional features like full-screen previews and preference saving.
 
+🔗 Video Trailer
+
+https://youtube.com/shorts/5LZUTMMCAg0?si=tun4acErvUPg5gAu
+
 ## 🎯 Features
 - 🌐 Online & Offline Wallpapers
 - 🖼️ Full-Screen Preview
